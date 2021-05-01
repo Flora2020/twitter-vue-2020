@@ -5,13 +5,15 @@ import store from './store'
 import AxiosPlugin from 'vue-axios-cors'
 import VueSocketIO from "vue-socket.io"
 
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjE5ODMzMDE5LCJleHAiOjE2MTk4NjE4MTl9.yIXXjdwunH510KACkTxJ7kJK5dOWhQlbWCfWmL0IAYI'
+
 Vue.config.productionTip = false
 
 Vue.use(AxiosPlugin)
 Vue.use(
   new VueSocketIO({
     debug: true, // debug调试，生产建议关闭
-    connection: 'http://localhost:3000'
+    connection: `http://localhost:3000?token=${token}`
   })
 )
 

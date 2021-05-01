@@ -35,6 +35,9 @@ export default {
     //
     welcome: data => {
       console.log("welcome data数据返回= >", data);
+    },
+    error: data => {
+      console.log('error:', data)
     }
   },
   beforeDestroy () {
