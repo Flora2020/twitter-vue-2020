@@ -10,31 +10,31 @@
 <script>
 export default {
   data () {
-    return {};
+    return {}
   },
   methods: {
     // 连接socket
     connect () {
       this.$socket.open() // 开始连接socket
       // 订阅事件
-      this.sockets.subscribe("welcome", data => {
-        console.log("welcome data==> ", data)
+      this.sockets.subscribe('welcome', data => {
+        console.log('welcome subscribe:', data)
       })
     },
 
     // 发送消息
     sendMessage () {
-      this.$socket.emit("hello", "这里是客户端");
+      this.$socket.emit('hello', '這裡是客戶端')
     }
   },
 
   sockets: {
     connect (data) {
-      console.log(data);
+      console.log(data)
     },
     //
     welcome: data => {
-      console.log("welcome data数据返回= >", data);
+      console.log('welcome:', data)
     },
     error: data => {
       console.log('error:', data)
@@ -43,5 +43,5 @@ export default {
   beforeDestroy () {
     this.sockets.unsubscribe('welcome')
   }
-};
+}
 </script>
